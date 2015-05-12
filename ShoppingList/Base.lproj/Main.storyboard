@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E11f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5TI-PH-o7b">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="DFT-xO-OWS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5TI-PH-o7b" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="J9Q-Pl-W5F">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QET-Sr-q8c" kind="relationship" relationship="rootViewController" id="ubF-dj-3uN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H9S-Qk-8uT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="430" y="771"/>
+        </scene>
+        <!--Shopping List-->
+        <scene sceneID="O7N-8D-DM4">
+            <objects>
+                <tableViewController id="QET-Sr-q8c" customClass="ShoppingListTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" id="j1V-qV-d6H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="ShoppingListCell" rowHeight="60" id="1uS-0m-aGA" customClass="ShoppingListTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1uS-0m-aGA" id="uK1-8g-SIp">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="lFo-j2-nwx">
+                                            <rect key="frame" x="58" y="14" width="522" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu1-1c-fiX">
+                                            <rect key="frame" x="14" y="15" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="Ek3-ke-deU"/>
+                                                <constraint firstAttribute="height" constant="30" id="bVa-fz-dfi"/>
+                                            </constraints>
+                                            <state key="normal" image="tickNormalIcon">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="itemChecked:" destination="1uS-0m-aGA" eventType="touchUpInside" id="eGv-x7-QbM"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yu1-1c-fiX" firstAttribute="top" secondItem="uK1-8g-SIp" secondAttribute="topMargin" constant="7" id="G8w-AS-ocR"/>
+                                        <constraint firstAttribute="trailing" secondItem="lFo-j2-nwx" secondAttribute="trailing" constant="20" symbolic="YES" id="Lb8-ky-vXT"/>
+                                        <constraint firstAttribute="centerY" secondItem="yu1-1c-fiX" secondAttribute="centerY" id="RZd-t6-GgD"/>
+                                        <constraint firstAttribute="centerY" secondItem="lFo-j2-nwx" secondAttribute="centerY" id="SLC-zl-liQ"/>
+                                        <constraint firstItem="lFo-j2-nwx" firstAttribute="leading" secondItem="yu1-1c-fiX" secondAttribute="trailing" constant="14" id="dNq-DX-fZk"/>
+                                        <constraint firstItem="yu1-1c-fiX" firstAttribute="leading" secondItem="uK1-8g-SIp" secondAttribute="leading" constant="14" id="wm9-8l-oor"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="G8w-AS-ocR"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="lFo-j2-nwx" id="Y3D-Ua-Vtz"/>
+                                    <outlet property="tickButton" destination="yu1-1c-fiX" id="DFd-2B-xGx"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QET-Sr-q8c" id="que-RT-Odu"/>
+                            <outlet property="delegate" destination="QET-Sr-q8c" id="EQy-gp-vyv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Shopping List" id="sVu-mN-M1j">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="5G1-EM-ViH">
+                            <connections>
+                                <action selector="editList:" destination="QET-Sr-q8c" id="xfA-0J-CfC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QGg-xo-b7q">
+                            <connections>
+                                <action selector="addItem:" destination="QET-Sr-q8c" id="0jc-Nv-Gvw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editModeButtonItem" destination="5G1-EM-ViH" id="2wj-hZ-Vhf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q3k-Wp-Snq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="771"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tickNormalIcon" width="32" height="32"/>
+    </resources>
+</document>
