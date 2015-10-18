@@ -41,6 +41,50 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
         dataSource = ShoppingListDataSource()
     }
 
+    @IBAction func checkoutBasket(sender: AnyObject) {
+        
+        var allItems: [ShoppingListItem] = Array()
+        
+        if let itemsInSection0 = dataSource?.itemsInSection(0) {
+            allItems.appendContentsOf(itemsInSection0)
+        }
+        
+        if let itemsInSection1 = dataSource?.itemsInSection(1) {
+            allItems.appendContentsOf(itemsInSection1)
+        }
+        
+        
+        var totalSum: Float = 0
+        
+        let numberFormatter = NSNumberFormatter()
+        
+        for item: ShoppingListItem in allItems {
+            
+            if let price = item.price {
+                
+                if let cleanPrice = numberFormatter.numberFromString(price.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator("")) {
+                    totalSum += Float(cleanPrice)
+                }
+            }
+        }
+        
+        let alertController = UIAlertController(title: "Total Amount", message: String(format: "Total price in basket: %.02f", totalSum), preferredStyle: UIAlertControllerStyle.ActionSheet)
+
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        
+        let showCurrencyList = UIAlertAction(title: "Currencies", style: .Default) { (action)  in
+            
+            
+        }
+    
+        alertController.addAction(showCurrencyList)
+        
+        self.presentViewController(alertController, animated: true) {
+        }
+    }
 	
 
 	@IBAction func editList(sender: AnyObject) {
@@ -60,12 +104,13 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 		let alertController = UIAlertController(title: "New item", message: "Please, add new item to the list", preferredStyle: .Alert)
 
 		let newItemAction = UIAlertAction(title: "Add", style: .Default) { [unowned self] (action) in
-			let itemNameTextField = alertController.textFields![0] as! UITextField
-			let item = ShoppingListItem(name: itemNameTextField.text)
+			let itemNameTextField = alertController.textFields![0]
+            let priceTextField = alertController.textFields![1]
+			let item = ShoppingListItem(name: itemNameTextField.text!, price: priceTextField.text!)
 			self.dataSource?.insertItem(item, atIndexPath: NSIndexPath(forRow: 0, inSection: 0))
 			self.tableView.reloadData()
-			
 		}
+        
 		newItemAction.enabled = false
 		alertController.addAction(newItemAction)
 
@@ -78,6 +123,17 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 			}
 
 		}
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            
+            textField.placeholder = "Price"
+            textField.delegate = self
+            
+            NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+                newItemAction.enabled = textField.text != ""
+            }
+            
+        }
 		
 		let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
 		}
@@ -91,7 +147,7 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 		
 	// MARK: UITextFieldDelegate
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-		let newLength = count(textField.text) + count(string) - range.length
+		let newLength = textField.text!.characters.count + string.characters.count - range.length
 		return (newLength > kItemNameMaximumLength) ? false : true
 	}
 	
@@ -116,6 +172,13 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 		let itemsInSection = dataSource?.numberOfItemsInSection(section)
 		
 		cell.nameLabel.text = dataSource!.itemAtIndexPath(indexPath)?.name
+        
+        if let priceString = dataSource!.itemAtIndexPath(indexPath)?.price {
+            
+            cell.priceLabel.text = priceString
+        }
+        
+
 
 		let topItemColor: UIColor
 		let bottomItemColor: UIColor
@@ -160,7 +223,7 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 	override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 		let item = dataSource?.itemAtIndexPath(fromIndexPath)
 		
-		if let i = item {
+		if let _ = item {
 			dataSource?.moveItemFromIndexPath(fromIndexPath, toIndexPath: toIndexPath)
 			tableView.reloadData()
 		}

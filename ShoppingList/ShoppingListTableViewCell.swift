@@ -20,6 +20,7 @@ class ShoppingListTableViewCell: UITableViewCell {
 	var indexPath: NSIndexPath?
 	@IBOutlet weak var tickButton: UIButton!
 	@IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
 	
 	var state = ShoppingListItemState.TODO {
 		didSet {
@@ -31,7 +32,7 @@ class ShoppingListTableViewCell: UITableViewCell {
 	}
 	
 	
-	required init(coder aDecoder: NSCoder) {
+	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
 

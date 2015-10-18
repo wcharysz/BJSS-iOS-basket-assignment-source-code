@@ -17,13 +17,16 @@ enum ShoppingListItemState: String {
 
 class ShoppingListItem: NSCoder {
 	var name: String
+    var price: String?
+    var currency: Currency?
 	
 	override init() {
 		name = ""
 	}
 	
-	init(name: String) {
+    init(name: String, price: String) {
 		self.name = name
+        self.price = price
 	}
 	
 	// MARK: NSCoding
@@ -31,10 +34,20 @@ class ShoppingListItem: NSCoder {
 	required convenience init(coder decoder: NSCoder) {
 		self.init()
 		self.name = decoder.decodeObjectForKey("name") as! String
+        
+        if let price = decoder.decodeObjectForKey("price") as? String {
+            self.price = price
+        }
+        
+        if let money = decoder.decodeObjectForKey("currency") as? String {
+            self.currency = Currency(rawValue: money)
+        }
 	}
 	
 	func encodeWithCoder(coder: NSCoder) {
 		coder.encodeObject(self.name, forKey: "name")
+        coder.encodeObject(self.price, forKey: "price")
+        coder.encodeObject(self.currency?.rawValue, forKey: "currency")
 	}
 }
 
@@ -50,7 +63,7 @@ class ShoppingListDataSource: TableViewDataSource {
     }
 
     var sectionTitles: [String] {
-        var titles = [ShoppingListItemState.TODO.rawValue, ShoppingListItemState.DONE.rawValue]
+        let titles = [ShoppingListItemState.TODO.rawValue, ShoppingListItemState.DONE.rawValue]
 		return titles
     }
 
@@ -79,7 +92,7 @@ class ShoppingListDataSource: TableViewDataSource {
 	func insertItem(item: ShoppingListItem, atIndexPath indexPath: NSIndexPath) {
 		let section = indexPath.section
 		let row = indexPath.row
-		let sectionTitle = self.sectionTitles[indexPath.section]
+		_ = self.sectionTitles[indexPath.section]
 
 		sectionsAndItems[section]?.insert(item, atIndex: row)
 		
@@ -89,7 +102,7 @@ class ShoppingListDataSource: TableViewDataSource {
 	func removeItemAtIndexPath(indexPath: NSIndexPath) {
 		let section = indexPath.section
 		let row = indexPath.row
-		let sectionTitle = self.sectionTitles[indexPath.section]
+		_ = self.sectionTitles[indexPath.section]
 		
 		sectionsAndItems[section]?.removeAtIndex(row)
 
@@ -117,7 +130,7 @@ class ShoppingListDataSource: TableViewDataSource {
 				sectionsAndItems[beginSection] = items
 			}
 		} else {
-			if var items = sectionsAndItems[beginSection], var secondItems = sectionsAndItems[endSection] {
+			if var items = sectionsAndItems[beginSection], var _ = sectionsAndItems[endSection] {
 				let item = items[beginIndex]
 				
 				removeItemAtIndexPath(beginIndexPath)
@@ -133,8 +146,12 @@ class ShoppingListDataSource: TableViewDataSource {
 		if let arch = unarchiveData() {
 			sectionsAndItems = arch
 		} else {
-			sectionsAndItems = [0: [ShoppingListItem(name: "An item to take")],
-				1: [ShoppingListItem(name: "Collected item")]]
+			//sectionsAndItems = [0: [ShoppingListItem(name: "An item to take")],
+			//	1: [ShoppingListItem(name: "Collected item")]]
+            sectionsAndItems = [0: [ShoppingListItem(name: "Peas", price: "0.95 per bag"),
+                                    ShoppingListItem(name: "Eggs", price: "2.10 per dozen"),
+                                    ShoppingListItem(name: "Milk", price: "1.30 per bottle"),
+                                    ShoppingListItem(name: "Beans", price: "0.73 per can")]]
 		}
     }
 
@@ -150,7 +167,7 @@ class ShoppingListDataSource: TableViewDataSource {
 	
 	
 	private func archivedDataFilePath() -> String {
-		let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+		let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
 		return documentsDirectory + "/data"
 	}
 	
