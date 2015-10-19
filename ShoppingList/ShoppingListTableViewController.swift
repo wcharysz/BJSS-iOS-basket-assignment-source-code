@@ -72,7 +72,7 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
             }
         }
         
-        let alertController = UIAlertController(title: "Total Amount", message: String(format: "Total price in basket: %.02f", totalSum), preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let alertController = UIAlertController(title: "Total Amount", message: String(format: "Total price in basket: %.02f", totalSum), preferredStyle: UIAlertControllerStyle.Alert)
 
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
@@ -91,6 +91,11 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 
                         ActionSheetStringPicker.showPickerWithTitle("Currencies", rows: self.currencyArray, initialSelection: 0, doneBlock: { (picker, selectedIndex, selectedValue) -> Void in
                             
+                            if let name = selectedValue as? String {
+                                let currencyRate = names[name]
+                                self.showAlertWithTotalPrice((currency: name, exchangeRate: currencyRate!))
+                            }
+
                             
                             }, cancelBlock: { (picker) -> Void in
                                 
@@ -106,7 +111,7 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
         self.presentViewController(alertController, animated: true) {
         }
     }
-	
+    
 
 	@IBAction func editList(sender: AnyObject) {
 		self.mode = self.mode.switchMode()
@@ -165,6 +170,9 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 		}
 	}
 	
+    func showAlertWithTotalPrice(newRate: (currency: String, exchangeRate: NSNumber)) {
+        
+    }
 		
 	// MARK: UITextFieldDelegate
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
