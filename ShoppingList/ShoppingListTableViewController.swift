@@ -35,7 +35,8 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 
     var dataSource: ShoppingListDataSource?
 	var mode = EditModeEnum.NormalMode
-	
+
+    var currencyArray: [String]?
 
     override func viewDidLoad() {
         dataSource = ShoppingListDataSource()
@@ -80,7 +81,24 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
         
         let showCurrencyList = UIAlertAction(title: "Currencies", style: .Default) { (action)  in
             
-            
+            NetworkManager.sharedInstance.getLatestExchangeRateForCurrency(Currency.GBP, completion: { (rates) -> () in
+                
+                if let currencyRates = rates {
+
+                    if let names = currencyRates.rates {
+                        
+                        self.currencyArray = Array(names.keys)
+
+                        ActionSheetStringPicker.showPickerWithTitle("Currencies", rows: self.currencyArray, initialSelection: 0, doneBlock: { (picker, selectedIndex, selectedValue) -> Void in
+                            
+                            
+                            }, cancelBlock: { (picker) -> Void in
+                                
+                            }, origin: self.view)
+                    }
+                }
+                
+            })
         }
     
         alertController.addAction(showCurrencyList)
@@ -202,7 +220,8 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 		return cell
 	}
 
-	
+	// MARK: UITableViewControllerDelegate
+    
 	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return dataSource!.sectionTitles[section]
 	}
@@ -245,11 +264,6 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		
 	}
-	
-	
-	
-	// MARK: UITableViewControllerDelegate
-	
 	
 	
 	// MARK: ShoppingListTableViewCellDelegate

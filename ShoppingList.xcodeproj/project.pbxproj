@@ -48,6 +48,16 @@
 		CEEFC5611BD3C53800068248 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5531BD3C53800068248 /* Validation.swift */; settings = {ASSET_TAGS = (); }; };
 		CEEFC5631BD3CB7900068248 /* SampleExchangeRates.json in Resources */ = {isa = PBXBuildFile; fileRef = CEEFC5621BD3CB7900068248 /* SampleExchangeRates.json */; settings = {ASSET_TAGS = (); }; };
 		CEEFC5651BD426D700068248 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5641BD426D700068248 /* StringExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		EC39C7EC1BD5072600BFDAC5 /* EnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7EB1BD5072600BFDAC5 /* EnumExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		EC39C8031BD5256700BFDAC5 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7F01BD5256700BFDAC5 /* AbstractActionSheetPicker.m */; settings = {ASSET_TAGS = (); }; };
+		EC39C8041BD5256700BFDAC5 /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7F21BD5256700BFDAC5 /* ActionSheetCustomPicker.m */; settings = {ASSET_TAGS = (); }; };
+		EC39C8051BD5256700BFDAC5 /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7F51BD5256700BFDAC5 /* ActionSheetDatePicker.m */; settings = {ASSET_TAGS = (); }; };
+		EC39C8061BD5256700BFDAC5 /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7F71BD5256700BFDAC5 /* ActionSheetDistancePicker.m */; settings = {ASSET_TAGS = (); }; };
+		EC39C8071BD5256700BFDAC5 /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7F91BD5256700BFDAC5 /* ActionSheetLocalePicker.m */; settings = {ASSET_TAGS = (); }; };
+		EC39C8081BD5256700BFDAC5 /* ActionSheetMultipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7FB1BD5256700BFDAC5 /* ActionSheetMultipleStringPicker.m */; settings = {ASSET_TAGS = (); }; };
+		EC39C8091BD5256700BFDAC5 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7FE1BD5256700BFDAC5 /* ActionSheetStringPicker.m */; settings = {ASSET_TAGS = (); }; };
+		EC39C80A1BD5256700BFDAC5 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C8001BD5256700BFDAC5 /* DistancePickerView.m */; settings = {ASSET_TAGS = (); }; };
+		EC39C80B1BD5256700BFDAC5 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C8021BD5256700BFDAC5 /* SWActionSheet.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +104,28 @@
 		CEEFC5531BD3C53800068248 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		CEEFC5621BD3CB7900068248 /* SampleExchangeRates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleExchangeRates.json; sourceTree = "<group>"; };
 		CEEFC5641BD426D700068248 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		EC39C7EB1BD5072600BFDAC5 /* EnumExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumExtensions.swift; sourceTree = "<group>"; };
+		EC39C7EE1BD5256600BFDAC5 /* ShoppingList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ShoppingList-Bridging-Header.h"; path = "ExternalLibraries/ActionSheetPicker/ShoppingList-Bridging-Header.h"; sourceTree = "<group>"; };
+		EC39C7EF1BD5256700BFDAC5 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		EC39C7F01BD5256700BFDAC5 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		EC39C7F11BD5256700BFDAC5 /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		EC39C7F21BD5256700BFDAC5 /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		EC39C7F31BD5256700BFDAC5 /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		EC39C7F41BD5256700BFDAC5 /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		EC39C7F51BD5256700BFDAC5 /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		EC39C7F61BD5256700BFDAC5 /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		EC39C7F71BD5256700BFDAC5 /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		EC39C7F81BD5256700BFDAC5 /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		EC39C7F91BD5256700BFDAC5 /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		EC39C7FA1BD5256700BFDAC5 /* ActionSheetMultipleStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetMultipleStringPicker.h; sourceTree = "<group>"; };
+		EC39C7FB1BD5256700BFDAC5 /* ActionSheetMultipleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetMultipleStringPicker.m; sourceTree = "<group>"; };
+		EC39C7FC1BD5256700BFDAC5 /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		EC39C7FD1BD5256700BFDAC5 /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		EC39C7FE1BD5256700BFDAC5 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		EC39C7FF1BD5256700BFDAC5 /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		EC39C8001BD5256700BFDAC5 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		EC39C8011BD5256700BFDAC5 /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		EC39C8021BD5256700BFDAC5 /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +164,7 @@
 				CEEFC5001BD3B0C500068248 /* Views */,
 				CEEFC4FF1BD3B0BD00068248 /* Controllers */,
 				2C79F2781AEE7B09002DC058 /* AppDelegate.swift */,
+				EC39C7EE1BD5256600BFDAC5 /* ShoppingList-Bridging-Header.h */,
 				2C79F27C1AEE7B09002DC058 /* Main.storyboard */,
 				2C79F2811AEE7B09002DC058 /* LaunchScreen.xib */,
 				2C79F27F1AEE7B09002DC058 /* Images.xcassets */,
@@ -181,6 +214,7 @@
 			children = (
 				2CBE544D1AEFFEF900EE1562 /* UIColorExtensions.swift */,
 				CEEFC5641BD426D700068248 /* StringExtensions.swift */,
+				EC39C7EB1BD5072600BFDAC5 /* EnumExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -188,6 +222,7 @@
 		CEEFC5071BD3BC8F00068248 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				EC39C7ED1BD5251300BFDAC5 /* ActionSheetPicker */,
 				CEEFC5421BD3C17E00068248 /* AlamofireObjectMapper */,
 				CEEFC5251BD3C0FA00068248 /* Alamofire */,
 				CEEFC5081BD3BC9A00068248 /* ObjectMapper */,
@@ -259,6 +294,33 @@
 				CEEFC5431BD3C19900068248 /* AlamofireObjectMapper.swift */,
 			);
 			path = AlamofireObjectMapper;
+			sourceTree = "<group>";
+		};
+		EC39C7ED1BD5251300BFDAC5 /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				EC39C7EF1BD5256700BFDAC5 /* AbstractActionSheetPicker.h */,
+				EC39C7F01BD5256700BFDAC5 /* AbstractActionSheetPicker.m */,
+				EC39C7F11BD5256700BFDAC5 /* ActionSheetCustomPicker.h */,
+				EC39C7F21BD5256700BFDAC5 /* ActionSheetCustomPicker.m */,
+				EC39C7F31BD5256700BFDAC5 /* ActionSheetCustomPickerDelegate.h */,
+				EC39C7F41BD5256700BFDAC5 /* ActionSheetDatePicker.h */,
+				EC39C7F51BD5256700BFDAC5 /* ActionSheetDatePicker.m */,
+				EC39C7F61BD5256700BFDAC5 /* ActionSheetDistancePicker.h */,
+				EC39C7F71BD5256700BFDAC5 /* ActionSheetDistancePicker.m */,
+				EC39C7F81BD5256700BFDAC5 /* ActionSheetLocalePicker.h */,
+				EC39C7F91BD5256700BFDAC5 /* ActionSheetLocalePicker.m */,
+				EC39C7FA1BD5256700BFDAC5 /* ActionSheetMultipleStringPicker.h */,
+				EC39C7FB1BD5256700BFDAC5 /* ActionSheetMultipleStringPicker.m */,
+				EC39C7FC1BD5256700BFDAC5 /* ActionSheetPicker.h */,
+				EC39C7FD1BD5256700BFDAC5 /* ActionSheetStringPicker.h */,
+				EC39C7FE1BD5256700BFDAC5 /* ActionSheetStringPicker.m */,
+				EC39C7FF1BD5256700BFDAC5 /* DistancePickerView.h */,
+				EC39C8001BD5256700BFDAC5 /* DistancePickerView.m */,
+				EC39C8011BD5256700BFDAC5 /* SWActionSheet.h */,
+				EC39C8021BD5256700BFDAC5 /* SWActionSheet.m */,
+			);
+			path = ActionSheetPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,24 +402,30 @@
 				CEEFC5441BD3C19900068248 /* AlamofireObjectMapper.swift in Sources */,
 				CEEFC55B1BD3C53800068248 /* Response.swift in Sources */,
 				CEEFC5241BD3BD1B00068248 /* URLTransform.swift in Sources */,
+				EC39C8091BD5256700BFDAC5 /* ActionSheetStringPicker.m in Sources */,
 				CEEFC55E1BD3C53800068248 /* ServerTrustPolicy.swift in Sources */,
 				CEEFC55D1BD3C53800068248 /* Result.swift in Sources */,
 				2CF40AC71AEEB19F00C885E8 /* ShoppingListTableViewCell.swift in Sources */,
 				CEEFC55A1BD3C53800068248 /* Request.swift in Sources */,
 				2CC9CB4E1AEECAA5007106F2 /* ShoppingListDataSource.swift in Sources */,
 				CEEFC5571BD3C53800068248 /* Manager.swift in Sources */,
+				EC39C8051BD5256700BFDAC5 /* ActionSheetDatePicker.m in Sources */,
 				CEEFC5131BD3BCE900068248 /* ToJSON.swift in Sources */,
 				CEEFC50F1BD3BCE900068248 /* FromJSON.swift in Sources */,
 				CEEFC5551BD3C53800068248 /* Download.swift in Sources */,
+				EC39C8081BD5256700BFDAC5 /* ActionSheetMultipleStringPicker.m in Sources */,
 				CEEFC5221BD3BD1B00068248 /* TransformOf.swift in Sources */,
 				CEEFC5111BD3BCE900068248 /* Mapper.swift in Sources */,
+				EC39C8061BD5256700BFDAC5 /* ActionSheetDistancePicker.m in Sources */,
 				CEEFC5121BD3BCE900068248 /* Operators.swift in Sources */,
 				CEEFC5591BD3C53800068248 /* ParameterEncoding.swift in Sources */,
 				2C79F2791AEE7B09002DC058 /* AppDelegate.swift in Sources */,
 				CEEFC5651BD426D700068248 /* StringExtensions.swift in Sources */,
+				EC39C80A1BD5256700BFDAC5 /* DistancePickerView.m in Sources */,
 				CEEFC5581BD3C53800068248 /* MultipartFormData.swift in Sources */,
 				CEEFC5601BD3C53800068248 /* Upload.swift in Sources */,
 				CEEFC5611BD3C53800068248 /* Validation.swift in Sources */,
+				EC39C8031BD5256700BFDAC5 /* AbstractActionSheetPicker.m in Sources */,
 				CEEFC55F1BD3C53800068248 /* Stream.swift in Sources */,
 				CEEFC51F1BD3BD1B00068248 /* DateTransform.swift in Sources */,
 				CEEFC5041BD3B19100068248 /* NetworkManager.swift in Sources */,
@@ -368,6 +436,10 @@
 				CEEFC5061BD3B54800068248 /* Rates.swift in Sources */,
 				2CC9CB4C1AEEC66B007106F2 /* TableViewDataSource.swift in Sources */,
 				CEEFC5211BD3BD1B00068248 /* ISO8601DateTransform.swift in Sources */,
+				EC39C7EC1BD5072600BFDAC5 /* EnumExtensions.swift in Sources */,
+				EC39C80B1BD5256700BFDAC5 /* SWActionSheet.m in Sources */,
+				EC39C8071BD5256700BFDAC5 /* ActionSheetLocalePicker.m in Sources */,
+				EC39C8041BD5256700BFDAC5 /* ActionSheetCustomPicker.m in Sources */,
 				2CF40AC51AEE901100C885E8 /* ShoppingListTableViewController.swift in Sources */,
 				CEEFC5561BD3C53800068248 /* Error.swift in Sources */,
 				CEEFC51E1BD3BD1B00068248 /* DateFormatterTransform.swift in Sources */,
@@ -484,10 +556,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ShoppingList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "slawektrybus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShoppingList/ExternalLibraries/ActionSheetPicker/ShoppingList-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -495,10 +570,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ShoppingList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "slawektrybus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShoppingList/ExternalLibraries/ActionSheetPicker/ShoppingList-Bridging-Header.h";
 			};
 			name = Release;
 		};
