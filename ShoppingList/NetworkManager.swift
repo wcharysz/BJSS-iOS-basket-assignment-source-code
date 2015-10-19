@@ -51,19 +51,10 @@ class NetworkManager {
     
     let fixerURLString = "https://api.fixer.io"
     
-    func getLatestExchangeRateForPoundSterling() -> Rates? {
+    func getLatestExchangeRateForCurrency(base: Currency, completion:(Rates?) -> ()) {
         
-        guard let jsonPath = NSBundle.mainBundle().pathForResource("SampleExchangeRates", ofType: "json")  else {
-            return nil
-        }
-        
-        do {
-            let jsonData = try NSData(contentsOfFile: jsonPath, options: NSDataReadingOptions.DataReadingMapped)
-            
-            let rates = Mapper<Rates>().map(jsonData)
-            return rates
-        } catch {
-            return nil
+        Alamofire.manager.request(.GET, fixerURLString + String(format: "/latest?base=%@", base.rawValue)).responseObject { (response: Rates?, error: ErrorType?) -> Void in
+            completion(response)
         }
     }
 }

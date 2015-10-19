@@ -22,6 +22,10 @@
 
 import Foundation
 
+struct Alamofire {
+    static let manager = Manager.sharedInstance
+}
+
 // MARK: - URLStringConvertible
 
 /**
