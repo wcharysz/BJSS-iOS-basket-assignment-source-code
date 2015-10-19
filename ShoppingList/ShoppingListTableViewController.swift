@@ -57,12 +57,15 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
         var totalSum: Float = 0
         
         let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         
         for item: ShoppingListItem in allItems {
             
             if let price = item.price {
                 
-                if let cleanPrice = numberFormatter.numberFromString(price.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator("")) {
+                //if let cleanPrice = numberFormatter.numberFromString(price.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator(""))?.floatValue {
+                print("%f", price.stringWithNonDigitsRemoved())
+                if let cleanPrice = numberFormatter.numberFromString(price.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator(""))?.floatValue {
                     totalSum += Float(cleanPrice)
                 }
             }

@@ -47,6 +47,7 @@
 		CEEFC5601BD3C53800068248 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5521BD3C53800068248 /* Upload.swift */; settings = {ASSET_TAGS = (); }; };
 		CEEFC5611BD3C53800068248 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5531BD3C53800068248 /* Validation.swift */; settings = {ASSET_TAGS = (); }; };
 		CEEFC5631BD3CB7900068248 /* SampleExchangeRates.json in Resources */ = {isa = PBXBuildFile; fileRef = CEEFC5621BD3CB7900068248 /* SampleExchangeRates.json */; settings = {ASSET_TAGS = (); }; };
+		CEEFC5651BD426D700068248 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5641BD426D700068248 /* StringExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		CEEFC5521BD3C53800068248 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		CEEFC5531BD3C53800068248 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		CEEFC5621BD3CB7900068248 /* SampleExchangeRates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleExchangeRates.json; sourceTree = "<group>"; };
+		CEEFC5641BD426D700068248 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				2CBE544D1AEFFEF900EE1562 /* UIColorExtensions.swift */,
+				CEEFC5641BD426D700068248 /* StringExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				CEEFC5121BD3BCE900068248 /* Operators.swift in Sources */,
 				CEEFC5591BD3C53800068248 /* ParameterEncoding.swift in Sources */,
 				2C79F2791AEE7B09002DC058 /* AppDelegate.swift in Sources */,
+				CEEFC5651BD426D700068248 /* StringExtensions.swift in Sources */,
 				CEEFC5581BD3C53800068248 /* MultipartFormData.swift in Sources */,
 				CEEFC5601BD3C53800068248 /* Upload.swift in Sources */,
 				CEEFC5611BD3C53800068248 /* Validation.swift in Sources */,
