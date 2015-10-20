@@ -93,7 +93,7 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
                             
                             if let name = selectedValue as? String {
                                 let currencyRate = names[name]
-                                self.showAlertWithTotalPrice((currency: name, exchangeRate: currencyRate!))
+                                self.showAlertWithTotalPrice((currency: name, exchangeRate: currencyRate!, totalSum: totalSum))
                             }
 
                             
@@ -170,7 +170,13 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 		}
 	}
 	
-    func showAlertWithTotalPrice(newRate: (currency: String, exchangeRate: NSNumber)) {
+    func showAlertWithTotalPrice(newRate: (currency: String, exchangeRate: NSNumber, totalSum: Float)) {
+        
+        
+        
+        let alertController = UIAlertController(title: String(format: "Total Sum In ", newRate.currency), message: String(newRate.totalSum * newRate.exchangeRate.floatValue), preferredStyle: UIAlertControllerStyle.Alert)
+        
+        
         
     }
 		
