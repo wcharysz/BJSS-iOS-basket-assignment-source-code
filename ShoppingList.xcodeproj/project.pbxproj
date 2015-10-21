@@ -46,7 +46,6 @@
 		CEEFC55F1BD3C53800068248 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5511BD3C53800068248 /* Stream.swift */; settings = {ASSET_TAGS = (); }; };
 		CEEFC5601BD3C53800068248 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5521BD3C53800068248 /* Upload.swift */; settings = {ASSET_TAGS = (); }; };
 		CEEFC5611BD3C53800068248 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5531BD3C53800068248 /* Validation.swift */; settings = {ASSET_TAGS = (); }; };
-		CEEFC5631BD3CB7900068248 /* SampleExchangeRates.json in Resources */ = {isa = PBXBuildFile; fileRef = CEEFC5621BD3CB7900068248 /* SampleExchangeRates.json */; settings = {ASSET_TAGS = (); }; };
 		CEEFC5651BD426D700068248 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFC5641BD426D700068248 /* StringExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 		EC39C7EC1BD5072600BFDAC5 /* EnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7EB1BD5072600BFDAC5 /* EnumExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 		EC39C8031BD5256700BFDAC5 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7F01BD5256700BFDAC5 /* AbstractActionSheetPicker.m */; settings = {ASSET_TAGS = (); }; };
@@ -58,7 +57,18 @@
 		EC39C8091BD5256700BFDAC5 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C7FE1BD5256700BFDAC5 /* ActionSheetStringPicker.m */; settings = {ASSET_TAGS = (); }; };
 		EC39C80A1BD5256700BFDAC5 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C8001BD5256700BFDAC5 /* DistancePickerView.m */; settings = {ASSET_TAGS = (); }; };
 		EC39C80B1BD5256700BFDAC5 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39C8021BD5256700BFDAC5 /* SWActionSheet.m */; settings = {ASSET_TAGS = (); }; };
+		EC3F5EF81BD7CDD7006AC2B7 /* ShoppingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3F5EF71BD7CDD7006AC2B7 /* ShoppingListTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC3F5EFA1BD7CDD7006AC2B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C79F26B1AEE7B09002DC058 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C79F2721AEE7B09002DC058;
+			remoteInfo = ShoppingList;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2C79F2731AEE7B09002DC058 /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,10 +136,20 @@
 		EC39C8001BD5256700BFDAC5 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
 		EC39C8011BD5256700BFDAC5 /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
 		EC39C8021BD5256700BFDAC5 /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		EC3F5EF51BD7CDD7006AC2B7 /* ShoppingListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC3F5EF71BD7CDD7006AC2B7 /* ShoppingListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTests.swift; sourceTree = "<group>"; };
+		EC3F5EF91BD7CDD7006AC2B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2C79F2701AEE7B09002DC058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3F5EF21BD7CDD7006AC2B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				2C79F2751AEE7B09002DC058 /* ShoppingList */,
+				EC3F5EF61BD7CDD7006AC2B7 /* ShoppingListTests */,
 				2C79F2741AEE7B09002DC058 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -151,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				2C79F2731AEE7B09002DC058 /* ShoppingList.app */,
+				EC3F5EF51BD7CDD7006AC2B7 /* ShoppingListTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,6 +345,15 @@
 			path = ActionSheetPicker;
 			sourceTree = "<group>";
 		};
+		EC3F5EF61BD7CDD7006AC2B7 /* ShoppingListTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC3F5EF71BD7CDD7006AC2B7 /* ShoppingListTests.swift */,
+				EC3F5EF91BD7CDD7006AC2B7 /* Info.plist */,
+			);
+			path = ShoppingListTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,6 +374,24 @@
 			productReference = 2C79F2731AEE7B09002DC058 /* ShoppingList.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EC3F5EF41BD7CDD7006AC2B7 /* ShoppingListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC3F5EFC1BD7CDD7006AC2B7 /* Build configuration list for PBXNativeTarget "ShoppingListTests" */;
+			buildPhases = (
+				EC3F5EF11BD7CDD7006AC2B7 /* Sources */,
+				EC3F5EF21BD7CDD7006AC2B7 /* Frameworks */,
+				EC3F5EF31BD7CDD7006AC2B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC3F5EFB1BD7CDD7006AC2B7 /* PBXTargetDependency */,
+			);
+			name = ShoppingListTests;
+			productName = ShoppingListTests;
+			productReference = EC3F5EF51BD7CDD7006AC2B7 /* ShoppingListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -356,6 +405,10 @@
 				TargetAttributes = {
 					2C79F2721AEE7B09002DC058 = {
 						CreatedOnToolsVersion = 6.3.1;
+					};
+					EC3F5EF41BD7CDD7006AC2B7 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 2C79F2721AEE7B09002DC058;
 					};
 				};
 			};
@@ -373,6 +426,7 @@
 			projectRoot = "";
 			targets = (
 				2C79F2721AEE7B09002DC058 /* ShoppingList */,
+				EC3F5EF41BD7CDD7006AC2B7 /* ShoppingListTests */,
 			);
 		};
 /* End PBXProject section */
@@ -382,10 +436,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEFC5631BD3CB7900068248 /* SampleExchangeRates.json in Resources */,
 				2C79F27E1AEE7B09002DC058 /* Main.storyboard in Resources */,
 				2C79F2831AEE7B09002DC058 /* LaunchScreen.xib in Resources */,
 				2C79F2801AEE7B09002DC058 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3F5EF31BD7CDD7006AC2B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +506,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC3F5EF11BD7CDD7006AC2B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC3F5EF81BD7CDD7006AC2B7 /* ShoppingListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC3F5EFB1BD7CDD7006AC2B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C79F2721AEE7B09002DC058 /* ShoppingList */;
+			targetProxy = EC3F5EFA1BD7CDD7006AC2B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2C79F27C1AEE7B09002DC058 /* Main.storyboard */ = {
@@ -505,7 +581,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -544,7 +620,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -558,8 +634,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ShoppingList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "slawektrybus.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = wojciech.charysz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShoppingList/ExternalLibraries/ActionSheetPicker/ShoppingList-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -572,10 +649,36 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ShoppingList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "slawektrybus.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = wojciech.charysz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShoppingList/ExternalLibraries/ActionSheetPicker/ShoppingList-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		EC3F5EFD1BD7CDD7006AC2B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = ShoppingListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.hmmh.ShoppingListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingList.app/ShoppingList";
+			};
+			name = Debug;
+		};
+		EC3F5EFE1BD7CDD7006AC2B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ShoppingListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.hmmh.ShoppingListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingList.app/ShoppingList";
 			};
 			name = Release;
 		};
@@ -599,6 +702,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		EC3F5EFC1BD7CDD7006AC2B7 /* Build configuration list for PBXNativeTarget "ShoppingListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC3F5EFD1BD7CDD7006AC2B7 /* Debug */,
+				EC3F5EFE1BD7CDD7006AC2B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
