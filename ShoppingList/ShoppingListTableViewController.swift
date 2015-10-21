@@ -24,9 +24,6 @@ enum EditModeEnum {
 }
 
 
-
-
-
 class ShoppingListTableViewController: UITableViewController, UITextFieldDelegate, ShoppingListTableViewCellDelegate {
 	
 	let kItemNameMaximumLength = 20
@@ -58,26 +55,60 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
         var totalSum: Float = 0
         
         let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        numberFormatter.currencyCode = "GBP"
+        numberFormatter.lenient = true
+        //Set local settings to UK
+        numberFormatter.locale = NSLocale(localeIdentifier: "en_UK")
         
         for item: ShoppingListItem in allItems {
             
+            //Clean the price string
+            
             if let price = item.price {
                 
-                //if let cleanPrice = numberFormatter.numberFromString(price.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator(""))?.floatValue {
-                print("%f", price.stringWithNonDigitsRemoved())
-                if let cleanPrice = numberFormatter.numberFromString(price.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator(""))?.floatValue {
-                    totalSum += Float(cleanPrice)
+                print("Price 1 ",price.removePriceDescription())
+                var cleanPrice = price.removePriceDescription()
+
+                //Check for pence
+                if cleanPrice.hasSuffix("p") {
+                    cleanPrice = String(cleanPrice.characters.dropLast())
+                    
+                    //Change to Pound
+                    cleanPrice = "£0." + cleanPrice
+                }
+                
+                if let priceNumber = numberFormatter.numberFromString(cleanPrice)?.floatValue {
+                    totalSum += priceNumber
+                } else {
+                    //Check if the user entered pure digits
+                    
+                    // Create an `NSCharacterSet` set which includes everything *but* the digits
+                    let inverseSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
+                    
+                    // At every character in this "inverseSet" contained in the string,
+                    // split the string up into components which exclude the characters
+                    // in this inverse set
+                    let components = cleanPrice.componentsSeparatedByCharactersInSet(inverseSet)
+                    
+                    // Rejoin these components
+                    let filtered = components.joinWithSeparator("")
+                    
+                    if cleanPrice == filtered {
+                        totalSum += Float(cleanPrice)!
+                    }
                 }
             }
         }
         
-        let alertController = UIAlertController(title: "Total Amount", message: String(format: "Total price in basket: %.02f", totalSum), preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Total Amount", message: String(format: "Total price in basket: £%.02f", totalSum), preferredStyle: UIAlertControllerStyle.Alert)
 
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
         }
         alertController.addAction(cancelAction)
+        
+        
         
         let showCurrencyList = UIAlertAction(title: "Currencies", style: .Default) { (action)  in
             
@@ -88,14 +119,21 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
                     if let names = currencyRates.rates {
                         
                         self.currencyArray = Array(names.keys)
-
-                        ActionSheetStringPicker.showPickerWithTitle("Currencies", rows: self.currencyArray, initialSelection: 0, doneBlock: { (picker, selectedIndex, selectedValue) -> Void in
+                        
+                        let localisedCurrencyNames = self.currencyArray?.map({ (name) -> String in
                             
-                            if let name = selectedValue as? String {
+                            return NSLocale(localeIdentifier: "en_UK").displayNameForKey(NSLocaleCurrencyCode, value: name)!
+                        })
+                        
+                        
+                        ActionSheetStringPicker.showPickerWithTitle("Currencies", rows: localisedCurrencyNames, initialSelection: 0, doneBlock: { (picker, selectedIndex, selectedValue) -> Void in
+                            
+                            if let currencyNames = self.currencyArray {
+                                
+                                let name = currencyNames[selectedIndex]
                                 let currencyRate = names[name]
                                 self.showAlertWithTotalPrice((currency: name, exchangeRate: currencyRate!, totalSum: totalSum))
                             }
-
                             
                             }, cancelBlock: { (picker) -> Void in
                                 
@@ -140,23 +178,23 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
 		newItemAction.enabled = false
 		alertController.addAction(newItemAction)
 
-		alertController.addTextFieldWithConfigurationHandler { (textField) in
-			textField.placeholder = "Name"
-			textField.delegate = self
+        alertController.addTextFieldWithConfigurationHandler { (textFieldName) in
+			textFieldName.placeholder = "Name"
+			textFieldName.delegate = self
 			
-			NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
-				newItemAction.enabled = textField.text != ""
+			NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textFieldName, queue: NSOperationQueue.mainQueue()) { (notification) in
+				newItemAction.enabled = textFieldName.text != ""
 			}
 
 		}
         
-        alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+        alertController.addTextFieldWithConfigurationHandler { (textFieldPrice) -> Void in
             
-            textField.placeholder = "Price"
-            textField.delegate = self
+            textFieldPrice.placeholder = "Price"
+            textFieldPrice.delegate = self
             
-            NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
-                newItemAction.enabled = textField.text != ""
+            NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textFieldPrice, queue: NSOperationQueue.mainQueue()) { (notification) in
+                newItemAction.enabled = textFieldPrice.text != ""
             }
             
         }
@@ -173,9 +211,23 @@ class ShoppingListTableViewController: UITableViewController, UITextFieldDelegat
     func showAlertWithTotalPrice(newRate: (currency: String, exchangeRate: NSNumber, totalSum: Float)) {
         
         
+        let newSum = newRate.totalSum * newRate.exchangeRate.floatValue
         
-        let alertController = UIAlertController(title: String(format: "Total Sum In ", newRate.currency), message: String(newRate.totalSum * newRate.exchangeRate.floatValue), preferredStyle: UIAlertControllerStyle.Alert)
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        numberFormatter.currencyCode = newRate.currency
+        numberFormatter.lenient = true
         
+        let alertController = UIAlertController(title: String(format: "Total Sum In %@", NSLocale(localeIdentifier: "en_UK").displayNameForKey(NSLocaleCurrencyCode, value: newRate.currency)!), message: numberFormatter.stringFromNumber(NSNumber(float: newSum)), preferredStyle: UIAlertControllerStyle.Alert)
+        
+        
+        let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        
+        
+        self.presentViewController(alertController, animated: true) {
+        }
         
         
     }

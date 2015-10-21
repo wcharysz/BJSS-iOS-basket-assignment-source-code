@@ -148,10 +148,10 @@ class ShoppingListDataSource: TableViewDataSource {
 		} else {
 			//sectionsAndItems = [0: [ShoppingListItem(name: "An item to take")],
 			//	1: [ShoppingListItem(name: "Collected item")]]
-            sectionsAndItems = [0: [ShoppingListItem(name: "Peas", price: "0.95 per bag"),
-                                    ShoppingListItem(name: "Eggs", price: "2.10 per dozen"),
-                                    ShoppingListItem(name: "Milk", price: "1.30 per bottle"),
-                                    ShoppingListItem(name: "Beans", price: "0.73 per can")]]
+            sectionsAndItems = [0: [ShoppingListItem(name: "Peas", price: "95p per bag"),
+                                    ShoppingListItem(name: "Eggs", price: "£2.10 per dozen"),
+                                    ShoppingListItem(name: "Milk", price: "£1.30 per bottle"),
+                                    ShoppingListItem(name: "Beans", price: "73p per can")]]
 		}
     }
 

@@ -28,5 +28,16 @@ extension String {
         
         return String(stringWithNonDigitsRemoved)
     }
+    
+    func removePriceDescription() -> String {
+        guard let textRange = self.rangeOfString(" ") else {
+            return self
+        }
+        
+        let intIndex = self.startIndex.distanceTo(textRange.startIndex)
+        let firstSpaceIndex = self.startIndex.advancedBy(intIndex)
+        
+        return self.substringToIndex(firstSpaceIndex)
+    }
 
 }
